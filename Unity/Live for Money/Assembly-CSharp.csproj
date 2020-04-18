@@ -56,6 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ChangeScene.cs" />
+    <Compile Include="Assets\Scripts\MouseOverRainDrop.cs" />
+    <Compile Include="Assets\Scripts\PlayerScript.cs" />
+    <Compile Include="Assets\Scripts\TreeScene.cs" />
     <Compile Include="Assets\Scripts\WaterCollectionScene.cs" />
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>C:/Users/Garrett/Repos/Ludum_Dare_46/Unity/Live for Money/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
