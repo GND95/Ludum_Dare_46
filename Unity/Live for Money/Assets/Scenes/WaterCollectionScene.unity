@@ -547,7 +547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursorIcon: {fileID: 2800000, guid: c0d7fee0b4c8b0b4ca28b81f074207f3, type: 3}
   rainDrop: {fileID: 1742273166}
-  spawnFrequency: 3
+  spawnFrequency: 0.01
 --- !u!1 &1284644152
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,6 +640,7 @@ GameObject:
   - component: {fileID: 1742273169}
   - component: {fileID: 1742273168}
   - component: {fileID: 1742273167}
+  - component: {fileID: 1742273170}
   m_Layer: 5
   m_Name: FallingRainDrop
   m_TagString: Untagged
@@ -719,6 +720,27 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 792.98, y: 502}
+  m_AnchoredPosition: {x: 792.98, y: 500}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!50 &1742273170
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742273166}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

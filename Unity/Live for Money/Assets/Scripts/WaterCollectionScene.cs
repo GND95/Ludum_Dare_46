@@ -8,7 +8,7 @@ public class WaterCollectionScene : MonoBehaviour
     public Texture2D cursorIcon;
 
     public GameObject rainDrop;
-    public int spawnFrequency;
+    public float spawnFrequency;
 
     void Start()
     {
@@ -19,14 +19,13 @@ public class WaterCollectionScene : MonoBehaviour
 
     private void spawnRainDrop()
     {
-        Vector3 rainSpawnPoint = new Vector3(Random.Range(-8, 8), 4, 0);
+        Vector3 rainSpawnPoint = new Vector3(Random.Range(-8, 8), 6, 0);
         GameObject rain = GameObject.Instantiate(rainDrop, rainSpawnPoint, Quaternion.identity);
         Debug.Log("Spawning rain drop");      
-        //TODO - get multiple spawned rain gameobjects to fall. may need to move this code to the FallingRainDrop object itself
-            //Translate(Vector3.up * Time.deltaTime, Space.Self);                
+        //TODO need to destroy raindrop after x seconds
     }
 
-    IEnumerator rainShower(int spawnFrequency)
+    IEnumerator rainShower(float spawnFrequency)
     {
         while (true)
         {
