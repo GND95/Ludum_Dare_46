@@ -10,11 +10,14 @@ public class TreeScene : MonoBehaviour
 
     public Tile treeBase;
     public Tilemap tileMap;
-
-    public GameObject waterErrorMessage;
-
     Vector3Int CenterOfMap = new Vector3Int(9, -4, 0);
     Vector3Int BottomCenterOfMap = new Vector3Int(9, -14, 0);
+
+    public GameObject errorMessage;
+    public Text errorMessageText;
+    private int treeSizeLimit = 10;
+    private int currentTreeSize = 0;
+    
 
     IEnumerator GrowTree()
     {
@@ -23,24 +26,30 @@ public class TreeScene : MonoBehaviour
         BottomCenterOfMap.y++;        
     }
 
-    IEnumerator ErrorMessagePopup()
-    {        
-        waterErrorMessage.gameObject.SetActive(true);
+    IEnumerator ErrorMessagePopup(string error)
+    {
+        errorMessageText.text = error;     
+        errorMessage.gameObject.SetActive(true);
         yield return new WaitForSeconds(5);
-        waterErrorMessage.gameObject.SetActive(false);
+        errorMessage.gameObject.SetActive(false);
     }
 
     public void WaterTree()
     {
-        if (PlayerScript.waterQuantity >= 1)
+        if (PlayerScript.waterQuantity >= 1 && currentTreeSize < treeSizeLimit)
         {            
             PlayerScript.waterQuantity--;
+            currentTreeSize++;
             StartCoroutine(GrowTree());            
         }
-        else
+        else if (PlayerScript.waterQuantity < 1)
         {            
-            StartCoroutine(ErrorMessagePopup());
+            StartCoroutine(ErrorMessagePopup("You don't have any water!"));
         }        
+        else if (currentTreeSize >= treeSizeLimit)
+        {
+            StartCoroutine(ErrorMessagePopup("Your tree can't absorb any more water!"));
+        }
     }   
 
     void Start()
