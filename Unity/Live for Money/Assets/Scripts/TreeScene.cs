@@ -11,14 +11,37 @@ public class TreeScene : MonoBehaviour
     public Tile treeBase;
     public Tilemap tileMap;
 
+    public GameObject waterErrorMessage;
+
     Vector3Int CenterOfMap = new Vector3Int(9, -4, 0);
     Vector3Int BottomCenterOfMap = new Vector3Int(9, -14, 0);
 
-    public void GrowTree()
+    IEnumerator GrowTree()
     {
+        yield return new WaitForSeconds(20);
         tileMap.SetTile(BottomCenterOfMap, treeBase);
-        BottomCenterOfMap.y++;
+        BottomCenterOfMap.y++;        
     }
+
+    IEnumerator ErrorMessagePopup()
+    {        
+        waterErrorMessage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(5);
+        waterErrorMessage.gameObject.SetActive(false);
+    }
+
+    public void WaterTree()
+    {
+        if (PlayerScript.waterQuantity >= 1)
+        {            
+            PlayerScript.waterQuantity--;
+            StartCoroutine(GrowTree());            
+        }
+        else
+        {            
+            StartCoroutine(ErrorMessagePopup());
+        }        
+    }   
 
     void Start()
     {
