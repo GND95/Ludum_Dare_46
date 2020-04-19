@@ -2908,8 +2908,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.4, y: 58.4}
-  m_SizeDelta: {x: 671, y: 238.2}
+  m_AnchoredPosition: {x: 0.4, y: 23.9}
+  m_SizeDelta: {x: 671, y: 307.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1004699055
 MonoBehaviour:
@@ -2945,7 +2945,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Are you sure you want to leave your tree? Money trees require your undivided
-    attention or else they will immediately shrink.
+    attention or else they will immediately shrink back to a height of one.
 --- !u!222 &1004699056
 CanvasRenderer:
   m_ObjectHideFlags: 0
