@@ -36,7 +36,6 @@ public class TreeScene : MonoBehaviour
         }
         waterTreeButton.interactable = true;
 
-
         tileMap.SetTile(treeBaseBottomCenterOfMap, treeBase);
         tileMap.SetTile(treeTopBottomCenterOfMap[0], treeTop);
         tileMap.SetTile(treeTopBottomCenterOfMap[1], treeTop);
