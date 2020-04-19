@@ -21,4 +21,9 @@ public class ChangeScene : MonoBehaviour
     {
         switchScenePanel.SetActive(true);
     }
+
+    public void quitGame()
+    {
+        Application.Quit();
+    }
 }
