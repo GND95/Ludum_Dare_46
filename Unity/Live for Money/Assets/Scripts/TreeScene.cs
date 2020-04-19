@@ -211,7 +211,7 @@ public class TreeScene : MonoBehaviour
             ShowHideExitMenu();
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && waterTreeButton.interactable == true)
         {
             WaterTree();
         }
