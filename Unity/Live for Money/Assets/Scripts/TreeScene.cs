@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
+using UnityEngine.EventSystems;
 
 public class TreeScene : MonoBehaviour
 {
@@ -190,7 +191,9 @@ public class TreeScene : MonoBehaviour
     }
 
     void Update()
-    {
+    {        
+        EventSystem.current.SetSelectedGameObject(null, null); //fix bug where when user hits enter it has the last clicked button focused rather than the water money tree button
+
         saturationLevelText.text = futureTreeSize.ToString() + "/10";
         waterQuantityText.text = System.Math.Round(PlayerScript.waterQuantity, 2).ToString();
         moneyQuantityText.text = System.Math.Round(PlayerScript.moneyQuantity, 2).ToString("N2");
