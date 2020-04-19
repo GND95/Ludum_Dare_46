@@ -34,7 +34,7 @@ public class ShopScript : MonoBehaviour
     {
         PlayerScript.moneyQuantity -= RNG;
         PlayerScript.waterQuantity += 1;
-        CheckFunds();
+        GenerateText();        
     }
 
     public void OpenShopPanel()

@@ -12,7 +12,7 @@ public class TreeScene : MonoBehaviour
     public GameObject errorMessage;
     public Text errorMessageText;
 
-    public Tile treeBase, treeTop;    
+    public Tile treeBase, treeTop;
     public Tilemap tileMap;
     Vector3Int CenterOfMap = new Vector3Int(9, -4, 0);
     Vector3Int treeBaseBottomCenterOfMap = new Vector3Int(9, -13, 0);
@@ -20,10 +20,11 @@ public class TreeScene : MonoBehaviour
     Vector3Int[] previousTreeTopBottomCenterOfMap = { new Vector3Int(7, -12, 0), new Vector3Int(8, -12, 0), new Vector3Int(9, -12, 0), new Vector3Int(10, -12, 0), new Vector3Int(11, -12, 0), new Vector3Int(8, -11, 0), new Vector3Int(9, -11, 0), new Vector3Int(10, -11, 0), new Vector3Int(9, -10, 0) };
 
     private int treeSizeLimit = 10;
+    private int futureTreeSize = 0;
     private int currentTreeSize = 0;
 
-    public GameObject coin1;
-    
+    public GameObject coin1, coin2, coin3, coin4;
+
 
     IEnumerator GrowTree()
     {
@@ -66,12 +67,19 @@ public class TreeScene : MonoBehaviour
         treeTopBottomCenterOfMap[6].y++;
         treeTopBottomCenterOfMap[7].y++;
         treeTopBottomCenterOfMap[8].y++;
-        treeBaseBottomCenterOfMap.y++;        
+        treeBaseBottomCenterOfMap.y++;
+        currentTreeSize++;
+
+        if (currentTreeSize == 5)
+        {
+            coin1.SetActive(true);
+            coin2.SetActive(true);
+        }
     }
 
     IEnumerator ErrorMessagePopup(string error)
     {
-        errorMessageText.text = error;     
+        errorMessageText.text = error;
         errorMessage.gameObject.SetActive(true);
         yield return new WaitForSeconds(5);
         errorMessage.gameObject.SetActive(false);
@@ -79,29 +87,55 @@ public class TreeScene : MonoBehaviour
 
     public void WaterTree()
     {
-        if (PlayerScript.waterQuantity >= 1 && currentTreeSize < treeSizeLimit)
-        {            
+        if (PlayerScript.waterQuantity >= 1 && futureTreeSize < treeSizeLimit)
+        {
             PlayerScript.waterQuantity--;
-            currentTreeSize++;
-            StartCoroutine(GrowTree());            
+            futureTreeSize++;
+            StartCoroutine(GrowTree());
         }
         else if (PlayerScript.waterQuantity < 1)
-        {            
+        {
             StartCoroutine(ErrorMessagePopup("You don't have any water!"));
-        }        
-        else if (currentTreeSize >= treeSizeLimit)
+        }
+        else if (futureTreeSize >= treeSizeLimit)
         {
             StartCoroutine(ErrorMessagePopup("Your tree can't absorb any more water!"));
         }
-    }   
+    }
 
-    public void PickMoney()
+    public void PickMoney(int coinNumber)
     {
-        if (coin1.activeSelf == true)
+        switch (coinNumber)
         {
-            coin1.SetActive(false);
-            PlayerScript.moneyQuantity++;
-        }        
+            case 1:
+                if (coin1.activeSelf == true)
+                {
+                    coin1.SetActive(false);
+                    PlayerScript.moneyQuantity += System.Math.Round(Random.Range(1f, 3f), 2);
+                }
+                break;
+            case 2:
+                if (coin2.activeSelf == true)
+                {
+                    coin2.SetActive(false);
+                    PlayerScript.moneyQuantity += System.Math.Round(Random.Range(1f, 3f), 2);
+                }
+                break;
+            case 3:
+                if (coin3.activeSelf == true)
+                {
+                    coin3.SetActive(false);
+                    PlayerScript.moneyQuantity += System.Math.Round(Random.Range(1f, 3f), 2);
+                }
+                break;
+            case 4:
+                if (coin4.activeSelf == true)
+                {
+                    coin4.SetActive(false);
+                    PlayerScript.moneyQuantity += System.Math.Round(Random.Range(1f, 3f), 2);
+                }
+                break;
+        }
     }
 
     public void SpawnMoney()
@@ -113,7 +147,7 @@ public class TreeScene : MonoBehaviour
     {
         Cursor.visible = true;
     }
-   
+
     void Update()
     {
         waterQuantityText.text = PlayerScript.waterQuantity.ToString();
