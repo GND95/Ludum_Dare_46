@@ -8,11 +8,11 @@ public class ShopScript : MonoBehaviour
     public Text shopText, shopButtonText;
     public GameObject shopPanel;
     public Button shopBuyButton;
-    private double RNG;    
+    private double priceRNG, quantityRNG, finalPrice;
 
     private void CheckFunds()
     {
-        if (PlayerScript.moneyQuantity >= RNG)
+        if (PlayerScript.moneyQuantity >= finalPrice)
         {
             shopBuyButton.interactable = true;
         }
@@ -24,17 +24,20 @@ public class ShopScript : MonoBehaviour
 
     public void GenerateText()
     {
-        double RNGCalculate = Random.Range(0.87f, 4f);
-        RNG = System.Math.Round(RNGCalculate, 2);
-        shopText.text = "1 Water will cost you $" + RNG + ". Are you interested?";
+        double priceRNGCalculate = Random.Range(0.87f, 4f);
+        double quantityRNGCalculate = Random.Range(1f, 10f);
+        priceRNG = System.Math.Round(priceRNGCalculate, 2);
+        quantityRNG = System.Math.Round(quantityRNGCalculate, 0);
+        finalPrice = System.Math.Round((quantityRNG * priceRNG), 2);
+        shopText.text = quantityRNG + " Water will cost you $" + finalPrice.ToString("N2") + ". Are you interested?";
         CheckFunds();
     }
 
     public void BuyWater()
     {
-        PlayerScript.moneyQuantity -= RNG;
-        PlayerScript.waterQuantity += 1;
-        GenerateText();        
+        PlayerScript.moneyQuantity -= finalPrice;
+        PlayerScript.waterQuantity += quantityRNG;
+        GenerateText();
     }
 
     public void OpenShopPanel()
@@ -56,9 +59,9 @@ public class ShopScript : MonoBehaviour
     {
 
     }
-    
+
     void Update()
     {
-      
+        CheckFunds(); //if player has Water Shop open and collect coins that puts them over the threshold to buy, re-enable the buy button
     }
 }

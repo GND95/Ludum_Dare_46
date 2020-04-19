@@ -185,7 +185,7 @@ public class TreeScene : MonoBehaviour
     void Update()
     {
         waterQuantityText.text = System.Math.Round(PlayerScript.waterQuantity, 2).ToString();
-        moneyQuantityText.text = System.Math.Round(PlayerScript.moneyQuantity, 2).ToString();
+        moneyQuantityText.text = System.Math.Round(PlayerScript.moneyQuantity, 2).ToString("N2");
         saturationLevelText.text = futureTreeSize.ToString() + "/10";
 
         if (Input.GetKeyDown(KeyCode.Escape))
