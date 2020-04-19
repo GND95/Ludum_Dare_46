@@ -6,7 +6,8 @@ using UnityEngine.Tilemaps;
 
 public class TreeScene : MonoBehaviour
 {
-    public Text waterQuantityText, moneyQuantityText, saturationLevelText;
+    public Text saturationLevelText, waterQuantityText, moneyQuantityText, nextGrowthText;
+    public Button waterTreeButton;
 
     public GameObject errorMessage, exitGamePanel;
     public Text errorMessageText;
@@ -21,13 +22,20 @@ public class TreeScene : MonoBehaviour
     private int treeSizeLimit = 10;
     private int futureTreeSize = 0;
     private int currentTreeSize = 0;
+    private float treeGrowthTime;
 
     public GameObject coin1, coin2, coin3, coin4, coin5, coin6;
 
 
     IEnumerator GrowTree()
     {
-        yield return new WaitForSeconds(20);
+        for (treeGrowthTime = (Random.Range(1, 3)); treeGrowthTime > 0; treeGrowthTime -= Time.deltaTime) //to be able to keep track of the remaining growth time
+        {
+            waterTreeButton.interactable = false;
+            yield return null;
+        }
+        waterTreeButton.interactable = true;
+
 
         tileMap.SetTile(treeBaseBottomCenterOfMap, treeBase);
         tileMap.SetTile(treeTopBottomCenterOfMap[0], treeTop);
@@ -184,9 +192,17 @@ public class TreeScene : MonoBehaviour
 
     void Update()
     {
+        saturationLevelText.text = futureTreeSize.ToString() + "/10";
         waterQuantityText.text = System.Math.Round(PlayerScript.waterQuantity, 2).ToString();
         moneyQuantityText.text = System.Math.Round(PlayerScript.moneyQuantity, 2).ToString("N2");
-        saturationLevelText.text = futureTreeSize.ToString() + "/10";
+        if (treeGrowthTime > 0)
+        {
+            nextGrowthText.text = treeGrowthTime.ToString("N2");
+        }
+        else
+        {
+            nextGrowthText.text = "0";
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
