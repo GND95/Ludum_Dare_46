@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class WaterCollectionScene : MonoBehaviour
 {
-    public GameObject tutorialMessage;
+    public GameObject tutorialMessage, exitGamePanel;
     public GameObject rainDrop;
     public float spawnFrequency;
     public float rainDuration; //could problably use a timer for the duration of the rain interval.  
@@ -16,6 +16,7 @@ public class WaterCollectionScene : MonoBehaviour
     void Start()
     {
         StartCoroutine(rainShower(spawnFrequency, rainDuration));
+        exitGamePanel.SetActive(false);
     }
 
     private void spawnRainDrop()
@@ -51,9 +52,26 @@ public class WaterCollectionScene : MonoBehaviour
         }
     }
 
+    public void ShowHideExitMenu()
+    {
+        if (exitGamePanel.activeSelf == false)
+        {
+            exitGamePanel.SetActive(true);
+        }
+        else
+        {
+            exitGamePanel.SetActive(false);
+        }
+    }
+
     void Update()
     {
         waterQuantityText.text = System.Math.Round(PlayerScript.waterQuantity, 2).ToString();
         moneyQuantityText.text = System.Math.Round(PlayerScript.moneyQuantity, 2).ToString();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ShowHideExitMenu();
+        }
     }
 }

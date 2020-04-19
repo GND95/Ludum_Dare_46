@@ -514,6 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 799927542}
   - component: {fileID: 799927541}
+  - component: {fileID: 799927543}
   m_Layer: 0
   m_Name: _Manager
   m_TagString: Untagged
@@ -548,6 +549,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &799927543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799927540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60757abc02bdc2f4c9a6f93f7960ac7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &854816303
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,7 +1336,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 799927541}
-        m_MethodName: changeToSceneNumber
+        m_MethodName: changeToScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

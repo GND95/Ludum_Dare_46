@@ -8,7 +8,7 @@ public class TreeScene : MonoBehaviour
 {
     public Text waterQuantityText, moneyQuantityText;
 
-    public GameObject errorMessage;
+    public GameObject errorMessage, exitGamePanel;
     public Text errorMessageText;
 
     public Tile treeBase, treeTop, treeTopMoneyStar;
@@ -167,11 +167,29 @@ public class TreeScene : MonoBehaviour
     void Start()
     {
         Cursor.visible = true;
+        exitGamePanel.SetActive(false);
+    }
+
+    public void ShowHideExitMenu()
+    {
+        if (exitGamePanel.activeSelf == false)
+        {
+            exitGamePanel.SetActive(true);
+        }
+        else
+        {
+            exitGamePanel.SetActive(false);
+        }
     }
 
     void Update()
     {
         waterQuantityText.text = System.Math.Round(PlayerScript.waterQuantity, 2).ToString();
         moneyQuantityText.text = System.Math.Round(PlayerScript.moneyQuantity, 2).ToString();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ShowHideExitMenu();
+        }
     }
 }

@@ -7,7 +7,7 @@ public class ChangeScene : MonoBehaviour
 {
     public GameObject switchScenePanel;
 
-    public void changeToSceneNumber(string sceneToChangeTo)
+    public void changeToScene(string sceneToChangeTo)
     {        
         SceneManager.LoadScene(sceneToChangeTo);        
     }
