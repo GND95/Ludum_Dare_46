@@ -23,12 +23,12 @@ public class TreeScene : MonoBehaviour
     private int futureTreeSize = 0;
     private int currentTreeSize = 0;
 
-    public GameObject coin1, coin2, coin3, coin4;
+    public GameObject coin1, coin2, coin3, coin4, coin5, coin6;
 
 
     IEnumerator GrowTree()
     {
-        yield return new WaitForSeconds(20);        
+        yield return new WaitForSeconds(20);
 
         tileMap.SetTile(treeBaseBottomCenterOfMap, treeBase);
         tileMap.SetTile(treeTopBottomCenterOfMap[0], treeTop);
@@ -74,6 +74,14 @@ public class TreeScene : MonoBehaviour
         {
             coin1.SetActive(true);
             coin2.SetActive(true);
+        }
+
+        else if (currentTreeSize == 10)
+        {
+            coin3.SetActive(true);
+            coin4.SetActive(true);
+            coin5.SetActive(true);
+            coin6.SetActive(true);
         }
     }
 
@@ -132,6 +140,20 @@ public class TreeScene : MonoBehaviour
                 if (coin4.activeSelf == true)
                 {
                     coin4.SetActive(false);
+                    PlayerScript.moneyQuantity += System.Math.Round(Random.Range(1f, 3f), 2);
+                }
+                break;
+            case 5:
+                if (coin5.activeSelf == true)
+                {
+                    coin5.SetActive(false);
+                    PlayerScript.moneyQuantity += System.Math.Round(Random.Range(1f, 3f), 2);
+                }
+                break;
+            case 6:
+                if (coin6.activeSelf == true)
+                {
+                    coin6.SetActive(false);
                     PlayerScript.moneyQuantity += System.Math.Round(Random.Range(1f, 3f), 2);
                 }
                 break;
