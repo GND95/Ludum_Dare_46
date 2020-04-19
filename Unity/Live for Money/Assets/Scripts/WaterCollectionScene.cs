@@ -5,39 +5,38 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class WaterCollectionScene : MonoBehaviour
-{    
-    public GameObject tutorialMessage;    
+{
+    public GameObject tutorialMessage;
     public GameObject rainDrop;
     public float spawnFrequency;
     public float rainDuration; //could problably use a timer for the duration of the rain interval.  
-    public Text waterQuantityText;    
+    public Text waterQuantityText, moneyQuantityText;
 
 
     void Start()
     {
         StartCoroutine(rainShower(spawnFrequency, rainDuration));
-        //TODO: Make random chance event of the above coroutine happening
     }
 
     private void spawnRainDrop()
     {
         Vector3 rainSpawnPoint = new Vector3(Random.Range(-8, 8), 6, 0);
-        GameObject rain = GameObject.Instantiate(rainDrop, rainSpawnPoint, Quaternion.identity);                     
+        GameObject rain = GameObject.Instantiate(rainDrop, rainSpawnPoint, Quaternion.identity);
         Destroy(rain, 8);
-    }   
+    }
 
     IEnumerator rainShower(float spawnFrequency, float rainDuration)
     {
         while (true)
         {
             spawnRainDrop();
-            yield return new WaitForSeconds(spawnFrequency);                   
+            yield return new WaitForSeconds(spawnFrequency);
         }
     }
 
     public static void IncrementWaterCount()
     {
-        PlayerScript.waterQuantity++;
+        PlayerScript.waterQuantity += System.Math.Round(Random.Range(.05f, .5f), 2);
     }
 
     public void TutorialePopup()
@@ -54,6 +53,7 @@ public class WaterCollectionScene : MonoBehaviour
 
     void Update()
     {
-        waterQuantityText.text = PlayerScript.waterQuantity.ToString();
+        waterQuantityText.text = System.Math.Round(PlayerScript.waterQuantity, 2).ToString();
+        moneyQuantityText.text = System.Math.Round(PlayerScript.moneyQuantity, 2).ToString();
     }
 }

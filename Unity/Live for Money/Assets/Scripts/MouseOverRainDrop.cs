@@ -12,8 +12,7 @@ public class MouseOverRainDrop : MonoBehaviour
     }
   
     void OnMouseOver()
-    {
-        Debug.Log("destroying game object");
+    {        
         Destroy(this.gameObject);
         WaterCollectionScene.IncrementWaterCount();
     }

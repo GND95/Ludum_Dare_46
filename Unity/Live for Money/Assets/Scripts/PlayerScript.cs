@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    public static int waterQuantity;
+    public static double waterQuantity;
     public static double moneyQuantity;
     // Start is called before the first frame update
     void Start()

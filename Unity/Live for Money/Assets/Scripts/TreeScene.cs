@@ -6,8 +6,7 @@ using UnityEngine.Tilemaps;
 
 public class TreeScene : MonoBehaviour
 {
-    public Text waterQuantityText;
-    public Text moneyQuantityText;
+    public Text waterQuantityText, moneyQuantityText;
 
     public GameObject errorMessage;
     public Text errorMessageText;
@@ -97,13 +96,13 @@ public class TreeScene : MonoBehaviour
     {
         if (PlayerScript.waterQuantity >= 1 && futureTreeSize < treeSizeLimit)
         {
-            PlayerScript.waterQuantity--;
+            PlayerScript.waterQuantity -= 1;
             futureTreeSize++;
             StartCoroutine(GrowTree());
         }
         else if (PlayerScript.waterQuantity < 1)
         {
-            StartCoroutine(ErrorMessagePopup("You don't have any water!"));
+            StartCoroutine(ErrorMessagePopup("You don't have enough water!"));
         }
         else if (futureTreeSize >= treeSizeLimit)
         {
@@ -172,7 +171,7 @@ public class TreeScene : MonoBehaviour
 
     void Update()
     {
-        waterQuantityText.text = PlayerScript.waterQuantity.ToString();
-        moneyQuantityText.text = PlayerScript.moneyQuantity.ToString();
+        waterQuantityText.text = System.Math.Round(PlayerScript.waterQuantity, 2).ToString();
+        moneyQuantityText.text = System.Math.Round(PlayerScript.moneyQuantity, 2).ToString();
     }
 }

@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class ShopScript : MonoBehaviour
 {
-    public Text shopText;
+    public Text shopText, shopButtonText;
     public GameObject shopPanel;
     public Button shopBuyButton;
-    private double RNG;
+    private double RNG;    
 
     private void CheckFunds()
     {
@@ -24,7 +24,7 @@ public class ShopScript : MonoBehaviour
 
     public void GenerateText()
     {
-        double RNGCalculate = Random.Range(0.87f, 1.13f);
+        double RNGCalculate = Random.Range(0.87f, 4f);
         RNG = System.Math.Round(RNGCalculate, 2);
         shopText.text = "1 Water will cost you $" + RNG + ". Are you interested?";
         CheckFunds();
@@ -43,10 +43,12 @@ public class ShopScript : MonoBehaviour
         {
             GenerateText();
             shopPanel.SetActive(true);
+            shopButtonText.text = "Leave Water Shop";
         }
         else
         {
             shopPanel.SetActive(false);
+            shopButtonText.text = "Visit Water Shop";
         }
     }
 
