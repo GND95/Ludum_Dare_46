@@ -8,22 +8,62 @@ public class TreeScene : MonoBehaviour
 {
     public Text waterQuantityText;
 
-    public Tile treeBase;
-    public Tilemap tileMap;
-    Vector3Int CenterOfMap = new Vector3Int(9, -4, 0);
-    Vector3Int BottomCenterOfMap = new Vector3Int(9, -14, 0);
-
     public GameObject errorMessage;
     public Text errorMessageText;
+
+    public Tile treeBase, treeTop;    
+    public Tilemap tileMap;
+    Vector3Int CenterOfMap = new Vector3Int(9, -4, 0);
+    Vector3Int treeBaseBottomCenterOfMap = new Vector3Int(9, -13, 0);
+    Vector3Int[] treeTopBottomCenterOfMap = { new Vector3Int(7, -12, 0), new Vector3Int(8, -12, 0), new Vector3Int(9, -12, 0), new Vector3Int(10, -12, 0), new Vector3Int(11, -12, 0), new Vector3Int(8, -11, 0), new Vector3Int(9, -11, 0), new Vector3Int(10, -11, 0), new Vector3Int(9, -10, 0) };
+    Vector3Int[] previousTreeTopBottomCenterOfMap = { new Vector3Int(7, -12, 0), new Vector3Int(8, -12, 0), new Vector3Int(9, -12, 0), new Vector3Int(10, -12, 0), new Vector3Int(11, -12, 0), new Vector3Int(8, -11, 0), new Vector3Int(9, -11, 0), new Vector3Int(10, -11, 0), new Vector3Int(9, -10, 0) };
+
     private int treeSizeLimit = 10;
     private int currentTreeSize = 0;
     
 
     IEnumerator GrowTree()
     {
-        yield return new WaitForSeconds(20);
-        tileMap.SetTile(BottomCenterOfMap, treeBase);
-        BottomCenterOfMap.y++;        
+        yield return new WaitForSeconds(2);        
+
+        tileMap.SetTile(treeBaseBottomCenterOfMap, treeBase);
+        tileMap.SetTile(treeTopBottomCenterOfMap[0], treeTop);
+        tileMap.SetTile(treeTopBottomCenterOfMap[1], treeTop);
+        tileMap.SetTile(treeTopBottomCenterOfMap[2], treeTop);
+        tileMap.SetTile(treeTopBottomCenterOfMap[3], treeTop);
+        tileMap.SetTile(treeTopBottomCenterOfMap[4], treeTop);
+        tileMap.SetTile(treeTopBottomCenterOfMap[5], treeTop);
+        tileMap.SetTile(treeTopBottomCenterOfMap[6], treeTop);
+        tileMap.SetTile(treeTopBottomCenterOfMap[7], treeTop);
+        tileMap.SetTile(treeTopBottomCenterOfMap[8], treeTop);
+
+        //tileMap.SetTile(previousTreeTopBottomCenterOfMap[0], null);
+        //tileMap.SetTile(previousTreeTopBottomCenterOfMap[1], null);
+        //tileMap.SetTile(previousTreeTopBottomCenterOfMap[3], null);
+        //tileMap.SetTile(previousTreeTopBottomCenterOfMap[4], null);
+        //tileMap.SetTile(previousTreeTopBottomCenterOfMap[5], null);
+        //tileMap.SetTile(previousTreeTopBottomCenterOfMap[7], null);
+
+        previousTreeTopBottomCenterOfMap[0].y++;
+        previousTreeTopBottomCenterOfMap[1].y++;
+        previousTreeTopBottomCenterOfMap[2].y++;
+        previousTreeTopBottomCenterOfMap[3].y++;
+        previousTreeTopBottomCenterOfMap[4].y++;
+        previousTreeTopBottomCenterOfMap[5].y++;
+        previousTreeTopBottomCenterOfMap[6].y++;
+        previousTreeTopBottomCenterOfMap[7].y++;
+        previousTreeTopBottomCenterOfMap[8].y++;
+
+        treeTopBottomCenterOfMap[0].y++;
+        treeTopBottomCenterOfMap[1].y++;
+        treeTopBottomCenterOfMap[2].y++;
+        treeTopBottomCenterOfMap[3].y++;
+        treeTopBottomCenterOfMap[4].y++;
+        treeTopBottomCenterOfMap[5].y++;
+        treeTopBottomCenterOfMap[6].y++;
+        treeTopBottomCenterOfMap[7].y++;
+        treeTopBottomCenterOfMap[8].y++;
+        treeBaseBottomCenterOfMap.y++;        
     }
 
     IEnumerator ErrorMessagePopup(string error)
@@ -54,7 +94,7 @@ public class TreeScene : MonoBehaviour
 
     void Start()
     {
-        
+        Cursor.visible = true;
     }
    
     void Update()
