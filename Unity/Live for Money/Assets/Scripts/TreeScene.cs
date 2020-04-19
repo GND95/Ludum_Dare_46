@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 
 public class TreeScene : MonoBehaviour
 {
-    public Text waterQuantityText, moneyQuantityText;
+    public Text waterQuantityText, moneyQuantityText, saturationLevelText;
 
     public GameObject errorMessage, exitGamePanel;
     public Text errorMessageText;
@@ -186,6 +186,7 @@ public class TreeScene : MonoBehaviour
     {
         waterQuantityText.text = System.Math.Round(PlayerScript.waterQuantity, 2).ToString();
         moneyQuantityText.text = System.Math.Round(PlayerScript.moneyQuantity, 2).ToString();
+        saturationLevelText.text = futureTreeSize.ToString() + "/10";
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
