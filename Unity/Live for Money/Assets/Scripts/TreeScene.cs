@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 public class TreeScene : MonoBehaviour
 {
     public Text waterQuantityText;
+    public Text moneyQuantityText;
 
     public GameObject errorMessage;
     public Text errorMessageText;
@@ -20,6 +21,8 @@ public class TreeScene : MonoBehaviour
 
     private int treeSizeLimit = 10;
     private int currentTreeSize = 0;
+
+    public GameObject coin1;
     
 
     IEnumerator GrowTree()
@@ -92,6 +95,20 @@ public class TreeScene : MonoBehaviour
         }
     }   
 
+    public void PickMoney()
+    {
+        if (coin1.activeSelf == true)
+        {
+            coin1.SetActive(false);
+            PlayerScript.moneyQuantity++;
+        }        
+    }
+
+    public void SpawnMoney()
+    {
+        coin1.SetActive(true);
+    }
+
     void Start()
     {
         Cursor.visible = true;
@@ -100,5 +117,6 @@ public class TreeScene : MonoBehaviour
     void Update()
     {
         waterQuantityText.text = PlayerScript.waterQuantity.ToString();
+        moneyQuantityText.text = PlayerScript.moneyQuantity.ToString();
     }
 }
