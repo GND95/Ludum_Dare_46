@@ -383,8 +383,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 9, y: -12, z: 0}
     second:
-      m_TileIndex: 2
-      m_TileSpriteIndex: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -500,18 +500,18 @@ Tilemap:
       m_ColliderType: 1
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 67848da8f6829df449c6ca58e92f9e1c, type: 2}
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: d322d27572e65b04bab44257c7bf8873, type: 2}
-  - m_RefCount: 13
+  - m_RefCount: 12
     m_Data: {fileID: 11400000, guid: 05ff54032d7a94042ae41f6c822e5470, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 4b133e701bc94c74688c3be6aaf84f96, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: 21300000, guid: 3fdb6164d8f8aa14c8eb4d2cbe90d800, type: 3}
-  - m_RefCount: 13
+  - m_RefCount: 12
     m_Data: {fileID: 21300000, guid: 33a452328fbb67444adb83d146e8c20a, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 19
@@ -3955,6 +3955,7 @@ MonoBehaviour:
   errorMessageText: {fileID: 1536054163}
   treeBase: {fileID: 11400000, guid: d322d27572e65b04bab44257c7bf8873, type: 2}
   treeTop: {fileID: 11400000, guid: 05ff54032d7a94042ae41f6c822e5470, type: 2}
+  treeTopMoneyStar: {fileID: 11400000, guid: 67848da8f6829df449c6ca58e92f9e1c, type: 2}
   tileMap: {fileID: 37005587}
   coin1: {fileID: 1492369808}
   coin2: {fileID: 538266881}

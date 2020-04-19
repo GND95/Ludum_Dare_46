@@ -11,12 +11,12 @@ public class TreeScene : MonoBehaviour
     public GameObject errorMessage;
     public Text errorMessageText;
 
-    public Tile treeBase, treeTop;
+    public Tile treeBase, treeTop, treeTopMoneyStar;
     public Tilemap tileMap;
     Vector3Int CenterOfMap = new Vector3Int(9, -4, 0);
     Vector3Int treeBaseBottomCenterOfMap = new Vector3Int(9, -13, 0);
     Vector3Int[] treeTopBottomCenterOfMap = { new Vector3Int(7, -12, 0), new Vector3Int(8, -12, 0), new Vector3Int(9, -12, 0), new Vector3Int(10, -12, 0), new Vector3Int(11, -12, 0), new Vector3Int(8, -11, 0), new Vector3Int(9, -11, 0), new Vector3Int(10, -11, 0), new Vector3Int(9, -10, 0) };
-    Vector3Int[] previousTreeTopBottomCenterOfMap = { new Vector3Int(7, -12, 0), new Vector3Int(8, -12, 0), new Vector3Int(9, -12, 0), new Vector3Int(10, -12, 0), new Vector3Int(11, -12, 0), new Vector3Int(8, -11, 0), new Vector3Int(9, -11, 0), new Vector3Int(10, -11, 0), new Vector3Int(9, -10, 0) };
+    //Vector3Int[] previousTreeTopBottomCenterOfMap = { new Vector3Int(7, -12, 0), new Vector3Int(8, -12, 0), new Vector3Int(9, -12, 0), new Vector3Int(10, -12, 0), new Vector3Int(11, -12, 0), new Vector3Int(8, -11, 0), new Vector3Int(9, -11, 0), new Vector3Int(10, -11, 0), new Vector3Int(9, -10, 0) };
 
     private int treeSizeLimit = 10;
     private int futureTreeSize = 0;
@@ -38,7 +38,7 @@ public class TreeScene : MonoBehaviour
         tileMap.SetTile(treeTopBottomCenterOfMap[5], treeTop);
         tileMap.SetTile(treeTopBottomCenterOfMap[6], treeTop);
         tileMap.SetTile(treeTopBottomCenterOfMap[7], treeTop);
-        tileMap.SetTile(treeTopBottomCenterOfMap[8], treeTop);
+        tileMap.SetTile(treeTopBottomCenterOfMap[8], treeTopMoneyStar);
 
         //tileMap.SetTile(previousTreeTopBottomCenterOfMap[0], null);
         //tileMap.SetTile(previousTreeTopBottomCenterOfMap[1], null);
@@ -47,15 +47,15 @@ public class TreeScene : MonoBehaviour
         //tileMap.SetTile(previousTreeTopBottomCenterOfMap[5], null);
         //tileMap.SetTile(previousTreeTopBottomCenterOfMap[7], null);
 
-        previousTreeTopBottomCenterOfMap[0].y++;
-        previousTreeTopBottomCenterOfMap[1].y++;
-        previousTreeTopBottomCenterOfMap[2].y++;
-        previousTreeTopBottomCenterOfMap[3].y++;
-        previousTreeTopBottomCenterOfMap[4].y++;
-        previousTreeTopBottomCenterOfMap[5].y++;
-        previousTreeTopBottomCenterOfMap[6].y++;
-        previousTreeTopBottomCenterOfMap[7].y++;
-        previousTreeTopBottomCenterOfMap[8].y++;
+        //previousTreeTopBottomCenterOfMap[0].y++;
+        //previousTreeTopBottomCenterOfMap[1].y++;
+        //previousTreeTopBottomCenterOfMap[2].y++;
+        //previousTreeTopBottomCenterOfMap[3].y++;
+        //previousTreeTopBottomCenterOfMap[4].y++;
+        //previousTreeTopBottomCenterOfMap[5].y++;
+        //previousTreeTopBottomCenterOfMap[6].y++;
+        //previousTreeTopBottomCenterOfMap[7].y++;
+        //previousTreeTopBottomCenterOfMap[8].y++;
 
         treeTopBottomCenterOfMap[0].y++;
         treeTopBottomCenterOfMap[1].y++;
