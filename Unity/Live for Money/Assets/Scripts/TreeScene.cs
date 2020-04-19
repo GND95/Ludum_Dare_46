@@ -27,7 +27,7 @@ public class TreeScene : MonoBehaviour
 
     IEnumerator GrowTree()
     {
-        yield return new WaitForSeconds(2);        
+        yield return new WaitForSeconds(20);        
 
         tileMap.SetTile(treeBaseBottomCenterOfMap, treeBase);
         tileMap.SetTile(treeTopBottomCenterOfMap[0], treeTop);

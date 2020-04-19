@@ -112,8 +112,8 @@ MonoBehaviour:
     y: 30
     width: 2560
     height: 1307
-  m_MinSize: {x: 713, y: 498}
-  m_MaxSize: {x: 18008, y: 14048}
+  m_MinSize: {x: 683, y: 448}
+  m_MaxSize: {x: 12008, y: 8048}
   vertical: 0
   controlID: 14
 --- !u!114 &6
@@ -214,8 +214,8 @@ MonoBehaviour:
     y: 0
     width: 599
     height: 1307
-  m_MinSize: {x: 234, y: 498}
-  m_MaxSize: {x: 10004, y: 14048}
+  m_MinSize: {x: 204, y: 348}
+  m_MaxSize: {x: 4004, y: 8048}
   vertical: 1
   controlID: 54
 --- !u!114 &10
@@ -264,14 +264,14 @@ MonoBehaviour:
     y: 681
     width: 599
     height: 626
-  m_MinSize: {x: 234, y: 274}
-  m_MaxSize: {x: 10004, y: 10024}
-  m_ActualView: {fileID: 17}
+  m_MinSize: {x: 104, y: 124}
+  m_MaxSize: {x: 4004, y: 4024}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 17}
   - {fileID: 18}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -411,9 +411,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 744.7292, y: 621.12726, z: -3.5781994}
+    m_Target: {x: 526.26697, y: 810.06116, z: -3.5}
     speed: 2
-    m_Value: {x: 744.7292, y: 621.12726, z: -3.5781994}
+    m_Value: {x: 526.26697, y: 810.06116, z: -3.5}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -445,9 +445,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 297.14313
+    m_Target: 619.89264
     speed: 2
-    m_Value: 297.14313
+    m_Value: 619.89264
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -488,20 +488,20 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: c2e2ffffd8e2ffff52f1ffff0cf5ffffdef7ffffb2fbffffbe270000d8270000602c0000722c0000842c0000bc2c0000c22c0000
+      m_SelectedIDs: 86faffff
+      m_LastClickedID: -1402
+      m_ExpandedIDs: 2ef8ffffb0f9ffff84faffffb2fbffffe82700000c2800001c28000024280000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Canvas
-        m_OriginalName: Canvas
+        m_Name: spawn money
+        m_OriginalName: spawn money
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -7486
+        m_UserData: 10166
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -595,7 +595,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: ee240000
     m_LastClickedID: 9454
-    m_ExpandedIDs: 00000000562600007c260000a8260000c026000004270000562700005e27000090270000ec280000
+    m_ExpandedIDs: 000000005e26000084260000b0260000c82600000c2700005e2700006627000098270000ba280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -621,23 +621,23 @@ MonoBehaviour:
       m_ResourceFile: 
   m_AssetTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
+    m_SelectedIDs: 58280000
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000562600007c260000a8260000c026000004270000562700005e27000090270000ec280000
+    m_ExpandedIDs: ffffffff000000005e26000084260000b0260000c82600000c2700005e2700006627000098270000ba280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: ShopScript
+      m_OriginalName: ShopScript
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 10436
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_SearchString: 
@@ -648,8 +648,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 58280000
+    m_LastClickedInstanceID: 10328
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
