@@ -207,5 +207,10 @@ public class TreeScene : MonoBehaviour
         {
             ShowHideExitMenu();
         }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            WaterTree();
+        }
     }
 }
